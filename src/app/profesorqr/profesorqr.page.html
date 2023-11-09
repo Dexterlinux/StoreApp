@@ -1,0 +1,26 @@
+<app-header Title="Registro"></app-header>
+<ion-content>
+  <h5 class="item item-divider center-text">
+    Ingrese Numero de Sección
+  </h5>
+
+      <ion-item>
+        <ion-input label="" placeholder="Escribir Aqui" type="text" [(ngModel)]="texto"></ion-input>
+      </ion-item>
+      <br>
+  
+
+      <ion-header class="center">
+      <qrcode [qrdata]="texto" [width]="310"></qrcode>
+
+
+
+  </ion-header>
+
+  <ion-button expand="full" color="primary" [routerLink]="['/main/home']">
+    Finalizar
+    <ion-icon name="arrow-forward"></ion-icon>
+  </ion-button>
+  
+  
+</ion-content>

@@ -1,0 +1,82 @@
+<app-header [isModal]="true" Title="Registrar"></app-header>
+<ion-content>
+
+    <form [formGroup]="form" class="ion-padding ion-text-center" (ngSubmit)="submit()" >
+
+    
+    <!--//=======================NOMBRE========================-->
+        <app-custom-input
+        icon="person-outline"
+        [control]="form.controls.name"
+        type="text"
+        label="Profesor/a"
+        ></app-custom-input>
+    
+        <div class="validators" *ngIf="form.controls.name.errors && form.controls.name.touched">
+    
+          <div *ngIf="form.controls.name.errors?.['required']">El Nombre es Requerido</div>
+          <div *ngIf="form.controls.name.errors?.['minlenght']">El Nombre al Menos Deberia Tener 4 Caracteres</div>
+    
+        </div>
+
+    <!--//=======================Rut========================-->
+    <app-custom-input
+    icon="person-outline"
+    [control]="form.controls.id"
+    type="number"
+    label="Rut"
+    ></app-custom-input>
+
+    <div class="validators" *ngIf="form.controls.id.errors && form.controls.id.touched">
+
+      <div *ngIf="form.controls.id.errors?.['required']">Este Campo es Requerido</div>
+      <div *ngIf="form.controls.id.errors?.['min']">El Rut al Menos Deberia Tener 8 Caracteres</div>
+
+    </div>
+
+    <!--//=======================Asignatura========================-->
+    <app-custom-input
+    icon="newspaper-outline"
+    [control]="form.controls.asignatura"
+    type="nombre"
+    label="Ingrese Asignatura"
+    ></app-custom-input> 
+
+    <div class="validators" *ngIf="form.controls.asignatura.errors && form.controls.asignatura.touched">
+
+      <div *ngIf="form.controls.asignatura.errors?.['required']">Este Campo es Requerido</div>
+      <div *ngIf="form.controls.asignatura.errors?.['minlenght']">La Cantidad Minima de Caracteres es 4</div>
+
+    </div>
+
+     <!--//=======================CURSO========================-->
+     <ion-item>
+      <ion-select label="Curso" label-placement="Curso" placeholder="Seleccione Curso">
+        <ion-select-option value="1">1° Medio</ion-select-option>
+        <ion-select-option value="2">2° Medio</ion-select-option>
+        <ion-select-option value="3">3° Medio</ion-select-option>
+        <ion-select-option value="4">4° Medio</ion-select-option>
+      </ion-select>
+    </ion-item> 
+
+    <!--//=======================LETRA========================-->
+    <ion-item>
+      <ion-select label="Letra" label-placement="Letra" placeholder="Seleccione Letra">
+        <ion-select-option value="A">A</ion-select-option>
+        <ion-select-option value="B">B</ion-select-option>
+        <ion-select-option value="C">C</ion-select-option>
+        <ion-select-option value="D">D</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-fab vertical="bottom" horizontal="center" slot="fixed">
+      <ion-fab-button (click)="goToHome()">
+        <ion-icon name="add"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+    
+    
+    
+  </form>
+
+</ion-content>
